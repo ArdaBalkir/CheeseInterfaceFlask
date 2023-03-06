@@ -2,15 +2,44 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Image Uploader</title>
+  <title>Cheese Expert</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <h1>Image Uploader</h1>
-  <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
-    <label for="image">Select an image to upload:</label>
-    <input type="file" name="image" id="image">
-    <input type="submit" value="Predict">
-  </form>
+  <div class="row">
+      <img src="/static/cheese_expert.png" class="logo nav" width="420" height="140">
+      <form action="/" class="logo nav" method="post" enctype="multipart/form-data">
+        <label for="image" >Select an image to upload:</label>
+        <input type="file" name="image" id="image">
+        <input type="submit" value="Predict">
+      </form>
+      <p>This page was written for the purposes of demonstration.<br>
+        The ML model used was trained on Cheese data using <bold>Convolutional Networks</bold>
+        and the report is being generated using image processing techniques.
+        <br>
+        <br>
+        @Arda Balkir, Univeristy of Hertfordshire
+      </p>
+  </div>
+  <div class="row">
+    <div class="column left">
+      <ul class="scrollul">
+        {% for report in report_history %}
+          <li>{{ report }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="column right report">
+      <p>{{ prediction }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column left">
+      <!--<img src="data:image/jpeg;base64,{{ image }}" alt="Image">-->
+    </div>
+    <div class="column">
+      <p>{{ prediction }}</p>
+    </div>
+  </div>
 </body>
 </html>

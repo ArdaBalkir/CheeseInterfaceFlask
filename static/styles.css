@@ -44,7 +44,7 @@ input[type=submit] {
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  background-color: #4CAF50;
+  background-color: #d1b61e;
   color: #FFFFFF;
   font-size: 16px;
   font-weight: bold;
@@ -52,7 +52,10 @@ input[type=submit] {
 }
 
 p {
-  text-align: center;
+  text-align: left;
+  margin: 10px 0 0;
+  font-size: 16px;
+  color: #211d1d;
 }
   
 #result {
@@ -73,6 +76,71 @@ p {
 #result p {
   margin: 10px 0 0;
   font-size: 16px;
-  color: #777777;
+  color: #141212;
 }
   
+.column {
+  margin-left: 30px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+  float: left;
+}
+
+.left {
+  width: 20%;
+}
+
+.right {
+  width: 65%;
+}
+
+.logo {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+.nav {
+  float: left;
+}
+
+.parent {
+  background: mediumpurple;
+  padding: 1rem;
+}
+.child {
+  border: 1px solid indigo;
+  padding: 1rem;
+}
+
+.inline-block-child {
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+  margin-left: 20;
+  padding: 0;
+}
+
+li {
+  margin: 20;
+  font-size: 16px;
+  text-decoration: none;
+  color: #333;
+  padding-left: 20px;
+  border-radius: 5px;
+}
+
+.grid-container {
+  display: inline-grid;
+}
+
+.scrollul {height:160px;}
+.scrollul {overflow:hidden; overflow-y:scroll;}
+
+.report {height: 195px;overflow:hidden; overflow-y:scroll;}
