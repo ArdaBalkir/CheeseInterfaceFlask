@@ -3,7 +3,6 @@ from PIL import Image
 import numpy as np
 from CEUtilities import *
 from datetime import datetime
-import base64
 
 app = Flask(__name__)
 
@@ -26,13 +25,17 @@ def predict():
     image_name = image_file.filename
     # Open the image (and convert it to a numpy array)
     image = Image.open(image_file)
-    # image_array = np.array(image)
+    image_array = np.array(image)
+    # Save the image for prediction
+    image_path = "static/" + image_name
+    #image_file.save(image_path)
     
-    # Do something with the image array (e.g. pass it to a prediction model)
-    # prediction = my_prediction_model(image_array)
-    prediction = ce_prediction(image)
+    # Flask quirks are fixed
+    #image_path = "/" + image_path
+
+    prediction = ce_prediction(image, image_array)
     
-    encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
+    #encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
     # prediction log to be taken with timestamps
     currentDateAndTime = datetime.now()
     currentTime = currentDateAndTime.strftime("%H:%M:%S")
@@ -47,7 +50,7 @@ def predict():
     log.reverse()
 
     # Render the result template with the prediction text
-    return render_template('index.html', prediction=prediction, report_history=log, image=encoded_string)
+    return render_template('index.html', prediction=prediction, report_history=log)
 
 if __name__ == '__main__':
     app.run(debug=True)
