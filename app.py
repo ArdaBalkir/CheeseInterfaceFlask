@@ -3,6 +3,7 @@ from PIL import Image
 import numpy as np
 from CEUtilities import *
 from datetime import datetime
+from io import BytesIO
 
 app = Flask(__name__)
 
@@ -20,14 +21,26 @@ report_history = []
 
 @app.route('/', methods=['POST'])
 def predict():
+
+    if 'example-one' in request.form:
+        with open('static/emmantal_example.jpg', 'rb') as f:
+            local_image_data = f.read()
+        # Define your example data here
+        image = Image.open(BytesIO(local_image_data))
+        image_name = 'emmantal_example'
+    else:
+        image_file = request.files['image']
+        image = Image.open(image_file)
+        image_name = image_file.filename
+    
     # Get the uploaded image file from the form
-    image_file = request.files['image']
-    image_name = image_file.filename
+    #image_file = request.files['image']
+    
     # Open the image (and convert it to a numpy array)
-    image = Image.open(image_file)
+    
     image_array = np.array(image)
     # Save the image for prediction
-    image_path = "static/" + image_name
+    #image_path = "static/" + image_name
     #image_file.save(image_path)
     
     # Flask quirks are fixed
