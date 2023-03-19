@@ -4,7 +4,7 @@ from PIL import Image
 from report_funcs import *
 
 # load the saved model
-model = tf.keras.models.load_model("model_06_03_MLP", compile=True)
+model = tf.keras.models.load_model("model_19_03_MLP", compile=True)
 
 report_gen = [report_cheddar,report_emmantal,report_cheddar,
             report_cheddar,report_cheddar,report_cheddar]
