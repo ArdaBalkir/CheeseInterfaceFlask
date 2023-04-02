@@ -30,20 +30,17 @@
       </ul>
     </div>
     <div class="column right report">
-      <p>{{ prediction }}</p>
-    </div>
+      <p style="font-size: 24px; font-family: 'Times New Roman', serif; font-weight: bold; margin: 20px;">{{ prediction }}</p>
+    </div>    
   </div>
   <div class="row">
-    <div class="column left">
-      <form action="/" method="post">
-        <button type="submit" name="example-one">Example Data 1</button>
-        <button type="submit" name="example-two">Example Data 2</button>
-        <button type="submit" name="example-three">Example Data 3</button>
+    <div class="column right">
+      <form action="/" method="post" style="flex: 1; width: 100%; display: flex; flex-direction: row;">
+        <button type="submit" name="example-one" style="background-image: url('/static/emmantal_example.jpg'); background-size: cover; height: 200px; width: 200px; margin-right: 5px;"></button>
+        <button type="submit" name="example-two" style="background-image: url('/static/leicester_example.jpg'); background-size: cover; height: 200px; width: 200px; margin-right: 5px;"></button>
+        <button type="submit" name="example-three" style="background-image: url('/static/cheddar_example2.jpg'); background-size: cover; height: 200px; width: 200px;"></button>
       </form>
     </div>
-    <div class="column">
-      <p>{{ prediction }}</p>
-    </div>
-  </div>
+  </div>  
 </body>
 </html>

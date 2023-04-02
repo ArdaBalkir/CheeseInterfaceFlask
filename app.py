@@ -29,7 +29,7 @@ def predict():
         image = Image.open(BytesIO(local_image_data))
         image_name = 'emmantal_example'
     elif 'example-two' in request.form:
-        with open('static/cheddar_example.jpg', 'rb') as f:
+        with open('static/leicester_example.jpg', 'rb') as f:
             local_image_data = f.read()
         # Define your example data here
         image = Image.open(BytesIO(local_image_data))
