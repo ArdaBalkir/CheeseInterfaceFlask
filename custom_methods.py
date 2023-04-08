@@ -77,3 +77,23 @@ def get_saturation_and_brightness(image_array):
     mean_sat = np.mean(sat_filtered)
     mean_bright = np.mean(bright_filtered)
     return round(mean_sat, 2), round(mean_bright, 2)
+
+def impurities(image_array):
+
+    gray = cv2.cvtColor(image_array, cv2.COLOR_BGR2GRAY)
+    blurred = cv2.GaussianBlur(gray, (3, 3), 0)
+
+    # Apply Canny edge detection with high and low thresholds
+    edges = cv2.Canny(blurred, 10, 50, apertureSize=3)
+
+    # Find contours in the edges image
+    contours, _ = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Filter contours by area, in this case 20
+    # which has been found through testing!
+    big_contours = [c for c in contours if cv2.contourArea(c) > 20]
+
+    # Print the number of detected big contours
+    print(f"Number of detected big contours: {len(big_contours)}")
+
+    return len(big_contours)

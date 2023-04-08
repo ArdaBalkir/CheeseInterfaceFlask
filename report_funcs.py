@@ -5,8 +5,9 @@ from custom_methods import *
 
 def report_cheddar(image_array):
 
+    imp_count = impurities(image_array)
     sat, bright = get_saturation_and_brightness(image_array)
-    return f'The cheese type is Cheddar!, The cheese has a brightness of {bright} out of 255 and saturation of {sat} out of 255'
+    return f'The cheese type is Cheddar!, detected {imp_count} impurities, the cheese has a brightness of {bright} out of 255 and saturation of {sat} out of 255'
 
 def report_emmantal(image_array):
 
@@ -16,5 +17,6 @@ def report_emmantal(image_array):
 
 def report_leicester(image_array):
 
+    imp_count = impurities(image_array)
     sat, bright = get_saturation_and_brightness(image_array)
-    return f'The cheese type is Leicester!, The cheese has a brightness of {bright} out of 255 and saturation of {sat} out of 255'
+    return f'The cheese type is Leicester!, detected {imp_count} impurities, the cheese has a brightness of {bright} out of 255 and saturation of {sat} out of 255'
